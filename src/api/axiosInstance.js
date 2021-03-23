@@ -80,7 +80,7 @@ export async function _post (url, qs, body) {
     return console.log(err)
   }
 }
-export async function _postWithoutRetry (url, qs, body) {
+export async function _postNoRetry (url, qs, body) {
   const params = {
     url,
     method: 'post',
