@@ -1,4 +1,4 @@
-# tk_line
+# basic_project_template
 
 ## Project setup
 ```
