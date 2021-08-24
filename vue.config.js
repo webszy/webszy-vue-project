@@ -4,7 +4,7 @@ const TerserJSPlugin = require('terser-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const AutoZip = require('webpack-auto-zip')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
+const pkg = require('./package.json')
 function parseTime (time, cFormat) {
   if (arguments.length === 0) {
     return null
@@ -44,7 +44,7 @@ function parseTime (time, cFormat) {
   })
 }
 process.env.VUE_APP_BUILD_TIME = parseTime(new Date())
-
+process.env.VUE_APP_VERSION = pkg.version
 module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
@@ -86,7 +86,9 @@ module.exports = {
         deleteOriginalAssets: false
       })
     )
-    config.plugins.push(new AutoZip(process.env.NODE_ENV !== 'development' ? 'dist.prod.zip' : 'dist.test.zip'))
+    if (process.env.NODE_ENV === 'production') {
+      config.plugins.push(new AutoZip(`${pkg.name}_${pkg.version}_${process.env.VUE_APP_BUILD_ENV}.zip`))
+    }
     config
       .optimization = {
         usedExports: true,

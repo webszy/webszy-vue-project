@@ -159,3 +159,47 @@ export function isObj (obj) {
   const typeCheck = typeof obj !== 'undefined' && typeof obj === 'object' && obj !== null
   return typeCheck && Object.keys(obj).length > 0
 }
+export const waitSeocond = (second) => {
+  return new Promise(resolve => setTimeout(resolve, second * 1000))
+}
+export const isIphonex = () => {
+  // X XS, XS Max, XR
+  const xSeriesConfig = [
+    {
+      devicePixelRatio: 3,
+      width: 375,
+      height: 812
+    },
+    {
+      devicePixelRatio: 3,
+      width: 414,
+      height: 896
+    },
+    {
+      // 12
+      devicePixelRatio: 3,
+      width: 390,
+      height: 844
+    },
+    {
+      // 12 pro max
+      devicePixelRatio: 3,
+      width: 428,
+      height: 926
+    },
+    {
+      devicePixelRatio: 2,
+      width: 414,
+      height: 896
+    }
+  ]
+  // h5
+  if (typeof window !== 'undefined' && window) {
+    const isIOS = /iphone/gi.test(window.navigator.userAgent);
+    if (!isIOS) return false
+    const { devicePixelRatio, screen } = window
+    const { width, height } = screen
+    return xSeriesConfig.some(item => item.devicePixelRatio === devicePixelRatio && item.width === width && item.height === height)
+  }
+  return false
+}
