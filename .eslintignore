@@ -1,2 +1,3 @@
-/public/js/*
-/src/asstes/*.js
+/public/js
+/src/asstes
+/node_modules
