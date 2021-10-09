@@ -87,7 +87,7 @@ module.exports = {
       })
     )
     if (process.env.NODE_ENV === 'production') {
-      config.plugins.push(new AutoZip(`${pkg.name}_${pkg.version}_${process.env.VUE_APP_BUILD_ENV}.zip`))
+      config.plugins.push(new AutoZip(`${pkg.name}_${pkg.version}_${process.env.VUE_APP_ENV}.zip`))
     }
     config
       .optimization = {
