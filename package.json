@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "cross-env VUE_APP_BUILD_ENV=sandbox vue-cli-service build",
-    "build:test": "cross-env VUE_APP_BUILD_ENV=sandbox vue-cli-service build",
+    "build": "cross-env VUE_APP_ENV=sandbox vue-cli-service build",
+    "build:test": "cross-env VUE_APP_ENV=sandbox vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
