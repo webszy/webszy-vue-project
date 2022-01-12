@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import 'tailwindcss/base.css'
-import 'tailwindcss/utilities.css'
+import CompositionAPI from '@vue/composition-api'
+import 'vue2-toast/lib/toast.css';
+import 'windi.css'
+import Toast from 'vue2-toast';
 
 Vue.config.productionTip = false
-
+Vue.use(CompositionAPI)
+Vue.use(Toast, {
+  type: 'bottom',
+  duration: 4000,
+  wordWrap:true
+});
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')
+// eslint-disable-next-line no-undef
+window._env = _env

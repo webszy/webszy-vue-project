@@ -1,30 +1,23 @@
 <template>
-  <div id="app" class="w-full h-full">
-    <router-view/>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
-<script>
-import { isIphonex } from "@/utils"
 
-export default {
-  name: 'App',
-  created () {
-    window._env = {
-      buildTime: process.env.VUE_APP_BUILD_TIME,
-      appENV: process.env.VUE_APP_ENV,
-      buildType: process.env.NODE_ENV,
-      version: process.env.VUE_APP_VERSION
-    }
-    if (isIphonex()) {
-      document.body.style.setProperty('--safe-top', '.4rem')
-      document.body.style.setProperty('--safe-bottom', '.34rem')
-    } else {
-      document.body.style.setProperty('--safe-top', '.1rem')
-      document.body.style.setProperty('--safe-bottom', '.1rem')
-    }
-  }
-}
+<script setup>
+/* eslint-disable no-unused-vars */
+import HelloWorld from './components/HelloWorld.vue'
+
 </script>
-<style>
 
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
